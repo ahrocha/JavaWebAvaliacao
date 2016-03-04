@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<title>Cadastro de Usuarios</title>
+</h:head>
+<h:body>
+	<ui:include src="Nav.xhtml" />
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-6 col-xs-6 col-sm-6">
+				<h:form>
+				<h2>Disciplina - #{cadastrarNotasBean.disciplina.nome} | Aluno - #{cadastrarNotasBean.aluno.nome}</h2>
+					<div class="form-group">
+						<h:outputText value="Nota" />
+						<h:inputText class="form-control" value="#{cadastrarNotasBean.nota.nota}" />
+					</div>
+					
+					<div class="form-group">
+						<h:outputText value="Peso" />
+						<h:selectOneMenu class="form-control" value="#{cadastrarNotasBean.nota.peso}">
+							<f:selectItems value="#{cadastrarNotasBean.peso}" var="p" itemLabel="#{p.toString()}" itemValue="#{p.toString()}"/>
+						</h:selectOneMenu>
+					</div>
+									
+					<h:commandButton class="btn btn-default btn-sm" value="Incluir" action="#{cadastrarNotasBean.cadastrarNota()}" />
+				</h:form>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>
